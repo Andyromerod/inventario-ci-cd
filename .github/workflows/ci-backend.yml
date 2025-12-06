@@ -18,12 +18,18 @@ jobs:
         with:
           node-version: "lts/*"
 
+      - name: Limpiar instalación
+        run: |
+          cd backend
+          rm -rf node_modules package-lock.json
+
       - name: Instalar dependencias del backend
         run: |
           cd backend
-          npm install
+          npm ci
 
       - name: Ejecutar pruebas del backend
         run: |
           cd backend
           npm test
+
